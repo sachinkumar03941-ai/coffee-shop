@@ -1,0 +1,25 @@
+/* Jumbotron/Hero Section */
+.jumbotron {
+    background:url("https://www.shutterstock.com/search/coffee-shop-background") center/cover no-repeat;
+    color: white;
+    text-align: center;
+    padding: 3rem 1rem;
+    border-radius: 15px;
+    margin-bottom: 2rem;
+}
+
+.jumbotron h1 {
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+.jumbotron p {
+    font-size: 1.2rem;
+}
+
+/* Responsive for Home */
+@media (max-width: 768px) {
+    .jumbotron h1 {
+        font-size: 2rem;
+    }
+}

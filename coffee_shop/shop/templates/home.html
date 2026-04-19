@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'home.css' %}">
+<div class="jumbotron bg-light p-5 rounded mb-4">
+    <h1 class="display-4">Welcome to Coffer Corner</h1>
+    <p class="lead">Your cozy spot for the finest coffees and treats. Order online and enjoy!</p>
+    <a href="{% url 'menu' %}" class="btn btn-primary btn-lg">Explore Menu</a>
+</div>
+
+<h2 class="mb-4">Featured Coffees</h2>
+<div class="row">
+    {% for product in products %}
+    <div class="col-md-4 mb-4">
+        <div class="card h-100 shadow">
+            {% if product.image %}
+                <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.name }}">
+            {% else %}
+                <img src="https://via.placeholder.com/300x200?text=No+Image" class="card-img-top" alt="Placeholder">
+            {% endif %}
+            <div class="card-body">
+                <h5 class="card-title">{{ product.name }}</h5>
+                <p class="card-text">{{ product.description|truncatechars:100 }}</p>
+                <p class="text-success fw-bold">${{ product.price }}</p>
+                {% if user.is_authenticated %}
+                    <a href="{% url 'add_to_cart' product.id %}" class="btn btn-primary">Add to Cart</a>
+                {% else %}
+                    <a href="{% url 'login' %}" class="btn btn-outline-primary">Login to Order</a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
