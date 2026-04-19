@@ -1,0 +1,14 @@
+/* Filters */
+.form-select {
+    border-radius: 8px;
+    border: 1px solid var(--primary-color);
+}
+
+.form-select:focus {
+    border-color: var(--secondary-color);
+}
+
+/* Product Grid */
+.row .col-md-4 {
+    margin-bottom: 1.5rem;
+}
